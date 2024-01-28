@@ -1,0 +1,34 @@
+import logging
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
+# Token for your bot
+TOKEN = '6960250451:AAGjSiav3rirTOhUOMfEYLsiDt9HPPPADTE'
+
+# Create the Updater and pass it your bot's token
+updater = Updater(token=TOKEN, use_context=True)
+
+# Get the dispatcher to register handlers
+dispatcher = updater.dispatcher
+
+# Define a command handler. This one responds to the /start command
+def start(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Hi! I am EchoBot. Send me a message, and I will echo it back.")
+
+# Define an echo handler. This one echoes whatever message the user sends.
+def echo(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+
+# Register the handlers with the dispatcher
+start_handler = CommandHandler('start', start)
+echo_handler = MessageHandler(Filters.text & ~Filters.command, echo)
+dispatcher.add_handler(start_handler)
+dispatcher.add_handler(echo_handler)
+
+# Start the Bot
+updater.start_polling()
+
+# Run the bot until you send a signal to stop it
+updater.idle()

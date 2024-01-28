@@ -1,0 +1,62 @@
+sudo yum install epel-release
+sudo yum install python36 python36-pip
+python3.6 -m venv venv
+
+cd  /root/pyTelegramBotAPI
+
+source venv/bin/activate
+
+pip install pyTelegramBotAPI
+
+pip install --upgrade python-telegram-bot
+
+pip install python-telegram-bot==12.8.0
+
+
+pip install -r requirements.txt
+--edit----
+pytest
+requests<3.0.0,>=2.25.0
+wheel
+aiohttp>=3.8.0,<3.9.0
+
+----
+pip install -r requirements.txt
+
+
+python echo_bot.py
+
+
+
+
+nohup python checklinks.py > bot.log 2>&1 &
+ps aux | grep "python checklinks.py"
+kill -TERM <PID>
+pkill -f "python checklinks.py"
+kill -TERM 25442
+pkill -f "python checklinks.py"
+cat bot.log
+ps aux | grep "python checklinks.py"
+
+
+source /root/pyTelegramBotAPI/venv/bin/activate
+pip install python-telegram-bot==13.7
+pip install requests
+
+python checklinks.py
+
+
+
+
+
+
+
+sudo yum install tmux
+tmux new -s mybot
+python checklinks.py
+
+
+---->Cntr+b--->d
+>>>>
+tmux attach -t mybot
+

@@ -1,0 +1,4 @@
+pytest
+requests<3.0.0,>=2.25.0
+wheel
+aiohttp>=3.8.0,<3.9.0
