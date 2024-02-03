@@ -10,25 +10,31 @@ pip install pyTelegramBotAPI
 
 pip install --upgrade python-telegram-bot
 
+
+-------------error-------------------
+pip install setuptools-rust
+copied your this file in you loation prpject  requirements.txt
+--------------------------------
+
 pip install python-telegram-bot==12.8.0
 
 
 pip install -r requirements.txt
---edit----
+-------------edit-file -requirements.txt-----------
 pytest
 requests<3.0.0,>=2.25.0
 wheel
 aiohttp>=3.8.0,<3.9.0
 
-----
+----------------------------
 pip install -r requirements.txt
 
 
-python echo_bot.py
+python checklinks.py
 
 
 
-
+-------------------------------is not request-------------------------------------
 nohup python checklinks.py > bot.log 2>&1 &
 ps aux | grep "python checklinks.py"
 kill -TERM <PID>
@@ -37,14 +43,12 @@ kill -TERM 25442
 pkill -f "python checklinks.py"
 cat bot.log
 ps aux | grep "python checklinks.py"
-
-
 source /root/pyTelegramBotAPI/venv/bin/activate
 pip install python-telegram-bot==13.7
 pip install requests
 
 python checklinks.py
-
+--------------------------------------------------------------------
 
 
 
@@ -54,8 +58,6 @@ python checklinks.py
 sudo yum install tmux
 tmux new -s mybot
 python checklinks.py
-
-
 ---->Cntr+b--->d
 >>>>
 tmux attach -t mybot

@@ -58,11 +58,20 @@ def echo(update, context):
         context.bot.send_message(chat_id, f'You sent a non-link message: {message_text}')
 
 
+# Define a command handler to clean all links
+def clean_links(update, context):
+    chat_id = update.effective_chat.id
+    user_links.clear()
+    context.bot.send_message(chat_id, 'All links cleared.')
+
 # Register the handlers with the dispatcher
 start_handler = CommandHandler('start', start)
 echo_handler = MessageHandler(Filters.text & ~Filters.command, echo)
+clean_links_handler = CommandHandler('clear', clean_links)
+
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(echo_handler)
+dispatcher.add_handler(clean_links_handler)
 
 # Start the Bot
 updater.start_polling()
