@@ -21,6 +21,7 @@ user_positions = {}
 # Dictionary to store links for each user
 user_links = {}
 
+
 def validate_link(link, chat_id):
     try:
         response = requests.get(link)
@@ -33,7 +34,7 @@ def validate_link(link, chat_id):
 
 def schedule_link_validation(link, chat_id):
     # Schedule the initial link validation after 2 minutes
-    threading.Timer(120, validate_link, args=[link, chat_id]).start()
+    threading.Timer(2, validate_link, args=[link, chat_id]).start()
     
     # Schedule the next link validation every 2 minutes
     threading.Timer(1800, schedule_link_validation, args=[link, chat_id]).start() 
@@ -59,10 +60,15 @@ def echo(update, context):
 
 
 # Define a command handler to clean all links
+
+
 def clean_links(update, context):
     chat_id = update.effective_chat.id
+    global user_links
     user_links.clear()
     context.bot.send_message(chat_id, 'All links cleared.')
+
+
 
 # Register the handlers with the dispatcher
 start_handler = CommandHandler('start', start)
