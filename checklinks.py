@@ -7,7 +7,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 # Token for your bot
-TOKEN = '6783916204:AAGrWsbz73SrQa0MWFIvk0BLTDmW6BI7Uqo'
+TOKEN = 'yourapibot'
 
 # Create the Updater and pass it your bot's token
 updater = Updater(token=TOKEN, use_context=True)
